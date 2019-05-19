@@ -1,0 +1,6 @@
+#ignore all file apart from source file
+
+*.gz
+*.tar
+*.log
+*.out
