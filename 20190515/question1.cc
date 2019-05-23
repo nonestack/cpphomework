@@ -30,6 +30,7 @@ Singleton *Singleton::getInstance(){
 void Singleton::destoryInstance(){
 	if(_pInstance){
 		delete _pInstance;
+		_pInstance = NULL;
 	}
 }
 
@@ -38,5 +39,7 @@ int main(){
 	Singleton *p2 = Singleton::getInstance();
 	printf("p1 = %p\np2 = %p\n", p1, p2);
 	Singleton::destoryInstance();
+	Singleton::destoryInstance();
+
 	return 0;
 }

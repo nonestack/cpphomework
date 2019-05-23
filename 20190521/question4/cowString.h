@@ -11,6 +11,25 @@ using std::cout;
 using std::endl;
 
 class CowString{
+	private:
+		class RetChar{
+			public:
+				RetChar(int idx, CowString &str)
+				:_idx(idx), _str(str)
+				{
+					printf("RetChar()\n");
+				}
+				~RetChar(){
+					printf("~RetChar()\n");
+				}
+				char &operator=(char ch);
+				operator char(){
+					return this->_str._pstr[_idx];
+				}
+			private:
+				int _idx;
+				CowString &_str;
+		};
 	public:
 		//构造函数 init function
 		CowString();
@@ -36,7 +55,7 @@ class CowString{
 		//operator= function
 		CowString &operator=(const CowString &);
 		//operator[] funtion
-		char &operator[](int);
+		RetChar &operator[](int);
 	private:
 		char *_pstr;		//一个int指针引用计数 + 后面的字符串(最短应该是5个字节)	_pstr contain refence count and string
 };

@@ -10,6 +10,8 @@ int main(){
 	str3.print();
 	//str2 = str3;
 
+	cout << str3[3] << endl;
+	//printf("%c\n", str3[4]);
 	//str1.print();
 	//str2.print();
 	//str3.print();

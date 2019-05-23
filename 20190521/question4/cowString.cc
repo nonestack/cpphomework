@@ -65,14 +65,22 @@ CowString &CowString::operator=(const CowString &str){
 }
 
 //operator[] function
-char &CowString::operator[](int idx){
-	if(idx > this->size() || idx < 0){
-		printf("index error\n");
-	}
-	char *ptmp = new char[4 + this->size() + 1]() + 4;
-	strcpy(ptmp, _pstr);
-	release();
-	_pstr = ptmp;
-	initRef();
-	return *(_pstr + idx);
+CowString::RetChar &CowString::operator[](int idx){
+	CowString::RetChar *p = new CowString::RetChar(idx, *this);
+	return *p;
 }
+
+
+char &CowString::RetChar::operator=(char ch){
+	if(_idx > this->_str.size() || _idx < 0){
+	             printf("index error\n");
+	}
+	char *ptmp = new char[4 + this->_str.size() + 1]() + 4;
+	strcpy(ptmp, _str._pstr);
+	this->_str.release();
+	*(ptmp + _idx) = ch;
+	this->_str._pstr = ptmp;
+	this->_str.initRef();
+	return *(this->_str._pstr + _idx);
+}
+
