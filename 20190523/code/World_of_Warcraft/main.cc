@@ -1,10 +1,5 @@
-#include "Dragon.h"
-#include "Arm.h"
-#include "Ninja.h"
-#include "Iceman.h"
-#include "Lion.h"
-#include "Wolf.h"
-#include "Headquarter.h"
+#include "Warrior.h"
+#include "City.h"
 
 #include<cstdlib>
 
@@ -24,17 +19,20 @@ int main(int argc, char *argv[]){
 	//int IcemanStrength = atoi(argv[5]);
 	//int LionStrength = atoi(argv[6]);
 	//int WolfStrength = atoi(argv[7]);
-	int i;
-	vector<Arm> avec;
-	avec.push_back(Arm("sword", 0));
-	avec.push_back(Arm("bomb", 1));
-	avec.push_back(Arm("arrow", 2));
-	for(auto iter = avec.begin(); iter != avec.end(); ++iter){
-		iter->getName();
-	}
+	Headquarter red(20);
+	red.addArm("sword");
+	red.addArm("bomb");
+	red.addArm("arrow");
+	red.printArm();
+
+	int time = 0;
+	
+
+	
 
 	//for(i = 0; i < num; ++i){
 
 	//}
+	return 0;
 }
 

@@ -1,0 +1,24 @@
+4. STL是由哪些组件构成的？它们各自具备什么样的特点？
+	容器		管理数组数据
+	迭代器		容器的类似指针
+	适配器		对容器、迭代器和算法进行封装
+	算法		提供对容器处理的有关算法的函数
+	函数对象	
+	配置器
+
+5. 序列式容器都有哪些异同？
+	vector	
+	deque
+	list
+	set
+	
+		same:
+			迭代器 (.begin(), .end())
+			.size()
+			.swap()
+			== and !=
+
+		difference:
+			vector 	只支持push_back(), 支持下标访问，动态扩容
+			list 	支持push_back()和push_front(), 不支持下标访问
+			deque 	支持push_back()和push_front(), 支持下标访问
